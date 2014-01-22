@@ -8,27 +8,38 @@
 
 #import "QuizViewController.h"
 
-@interface QuizViewController ()
-
-@end
-
 @implementation QuizViewController
+
+
 
 - (void)viewDidLoad
 {
+    //_questionField = nil;
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    currentQuestionIndex = 0;
+    answers = [NSArray arrayWithObjects:@"14",@"Montpelier",@"Grapes",nil];
+    questions = [NSArray arrayWithObjects:@"What is 7+7?", @"What is the capital of Vermont", @"What is used to make Cognac", nil];
 }
 
-- (void)viewDidUnload
+
+-(IBAction)showQuestion:(id)sender
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    currentQuestionIndex++;
+    if(currentQuestionIndex == [questions count]) {
+        currentQuestionIndex = 0;
+    }
+    
+    NSString *question = [questions objectAtIndex:currentQuestionIndex];
+    NSLog(@"displaying question: %@", question);
+    [self.questionField setText:question];
+    [_answerField setText:@"??"];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+-(IBAction)showAnswer:(id)sender
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    NSString *answer = [answers objectAtIndex:currentQuestionIndex];
+    
+    [_answerField setText:answer];
 }
 
 @end
