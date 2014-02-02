@@ -18,7 +18,7 @@
     [super viewDidLoad];
     currentQuestionIndex = 0;
     answers = [NSArray arrayWithObjects:@"14",@"Montpelier",@"Grapes",nil];
-    questions = [NSArray arrayWithObjects:@"What is 7+7?", @"What is the capital of Vermont", @"What is used to make Cognac", nil];
+    questions = [NSArray arrayWithObjects:@"What is 7+7?", @"What is the capital of Vermont?", @"What is used to make Cognac?", nil];
 }
 
 
